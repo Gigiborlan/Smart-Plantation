@@ -9,11 +9,9 @@ const int WaterValue = 410;
 
 void turn_relay_on() {
   digitalWrite(RELAY_PIN, HIGH);
-  Serial.print("Irrigation Started");
 }
 void turn_relay_off() {
   digitalWrite(RELAY_PIN, LOW);
-  Serial.print("Irrigation finished");
 }
 
 int get_temp() {
@@ -40,11 +38,14 @@ void setup() {
 void loop() {
   int temperature;
   int moisture;
+  bool watering;
   temperature = get_temp();
-  Serial.print("T" + (String)temperature);
   delay(2500);
   moisture = get_moisture();
   lcd_write(temperature,moisture);
+  //TODO Send data with three digits always
+  Serial.print("T" + (String)temperature);
   Serial.print("M" + (String)moisture);
+  Serial.print("W_" + (String)watering);
   delay(2500);
 }
