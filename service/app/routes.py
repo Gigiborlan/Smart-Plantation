@@ -18,14 +18,14 @@ def read_temperature():
 
 @app.route('/data',methods=['POST'])
 def set_data():
-    global _temperature, _umidity
-    temperature = request.args.get('temperature')
-    if temperature is not None:
+	global _temperature, _umidity
+	temperature = request.args.get('temperature')
+	if temperature is not None:
 		_temperature = temperature
-    umidity = request.args.get('umidity')
-    if umidity is not None:
+	umidity = request.args.get('umidity')
+	if umidity is not None:
 		_umidity = umidity
-    watering = request.args.get('watering')
-    if watering is not None:
+	watering = request.args.get('watering')
+	if watering is not None:
 		_watering = watering
-    return Response("Posted",200)
+	return Response("Posted",200)
