@@ -21,6 +21,7 @@ while(1):
 			print("Watering: " + watering)
 		    
 	r = requests.post('https://smart-plantation.herokuapp.com/data',params = {'temperature':temperature,'moisture':moisture,'watering':watering})
+	#r = requests.post('http://0.0.0.0:5000/data',params = {'temperature':temperature,'moisture':moisture,'watering':watering})
 	print(r.status_code)
 
 

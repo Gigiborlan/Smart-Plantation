@@ -13,16 +13,17 @@ def status():
 
 @app.route('/data',methods=['GET'])
 def read_temperature():
-    global _temperature, _umidity
+    global _temperature, _umidity, _watering
     return "Temperatura: " + str(_temperature) + "oC\nUmidade: " + str(_moisture) + "%\nWatering" + str(_watering)
 
 @app.route('/data',methods=['POST'])
 def set_data():
-	global _temperature, _umidity
+	global _temperature, _moisture, _watering
 	temperature = request.args.get('temperature')
 	if temperature is not None:
 		_temperature = temperature
 	moisture = request.args.get('moisture')
+	print(moisture)
 	if moisture is not None:
 		_moisture = moisture
 	watering = request.args.get('watering')
