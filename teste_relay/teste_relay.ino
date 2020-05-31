@@ -41,9 +41,10 @@ void loop() {
   int temperature;
   int moisture;
   temperature = get_temp();
-  delay(1000);
+  Serial.print("T" + (String)temperature);
+  delay(2500);
   moisture = get_moisture();
   lcd_write(temperature,moisture);
-  Serial.print((String)temperature + (String)moisture);
-  delay(1000);
+  Serial.print("M" + (String)moisture);
+  delay(2500);
 }
