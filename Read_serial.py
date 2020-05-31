@@ -20,7 +20,8 @@ while(1):
 			watering = serial_data[2]
 			print("Watering: " + watering)
 		    
-	requests.post('https://smart-plantaion.herokuapp.com/data',params = {'temperature':temperature 'moisture':moisture 'watering':watering})
+	r = requests.post('https://smart-plantation.herokuapp.com/data',params = {'temperature':temperature,'moisture':moisture,'watering':watering})
+	print(r.status_code)
 
 
 

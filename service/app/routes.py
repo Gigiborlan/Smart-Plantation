@@ -3,7 +3,7 @@ from app import app
 from flask import Response, request
 
 _temperature = 0
-_umidity = 0
+_moisture = 0
 _watering = 0
 
 @app.route('/')
@@ -14,7 +14,7 @@ def status():
 @app.route('/data',methods=['GET'])
 def read_temperature():
     global _temperature, _umidity
-    return "Temperatura: " + str(_temperature) + "oC\nUmidade: " + str(_umidity) + "%\nWatering" + str(_watering)
+    return "Temperatura: " + str(_temperature) + "oC\nUmidade: " + str(_moisture) + "%\nWatering" + str(_watering)
 
 @app.route('/data',methods=['POST'])
 def set_data():
@@ -22,9 +22,9 @@ def set_data():
 	temperature = request.args.get('temperature')
 	if temperature is not None:
 		_temperature = temperature
-	umidity = request.args.get('umidity')
-	if umidity is not None:
-		_umidity = umidity
+	moisture = request.args.get('moisture')
+	if moisture is not None:
+		_moisture = moisture
 	watering = request.args.get('watering')
 	if watering is not None:
 		_watering = watering
