@@ -4,8 +4,8 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 int temp_pin = 1;
 int soil_pin = 3;
 
-const int AirValue = 780;
-const int WaterValue = 410; 
+const int AirValue = 740;
+const int WaterValue = 340; 
 
 void turn_relay_on() {
   digitalWrite(RELAY_PIN, HIGH);
