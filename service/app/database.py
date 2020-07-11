@@ -1,5 +1,4 @@
 import psycopg2
-from urlparse import urlparse
 import os
 # import logger
 
@@ -26,14 +25,9 @@ def close_connection():
   _connection.close()
 
 
-url = urlparse(os.environ['DATABASE_URL'])
-dbname = url.path[1:]
-user = url.username
-password = url.password
-host = url.hostname
-port = url.port
+DATABASE_URL = os.environ['DATABASE_URL'])
 
-_connection = psycopg2.connect("dbname=dbname user=user password=password host=host port=port")
+_connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 _cursor = _connection.cursor()
 table_name = 'plant_properties' #private
 _create_table()
