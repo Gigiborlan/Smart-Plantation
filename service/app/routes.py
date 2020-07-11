@@ -1,7 +1,7 @@
 print(__name__)
 from app import app
 from flask import Response, request
-#from app import database
+from app import database
 
 _temperature = 0 # None, str
 _moisture = 0
@@ -35,5 +35,5 @@ def set_data():
 ##			_watering = True
 ##		else:
 ##			_watering = False
-	#database.insert_sensor_data(_temperature,_moisture,_watering)
+	database.insert_sensor_data(_temperature,_moisture,_watering)
 	return Response("Posted",200)
