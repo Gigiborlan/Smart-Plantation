@@ -1,4 +1,4 @@
 ﻿flask
 requests
 psycopg2
-urllib
+urllib.parse
