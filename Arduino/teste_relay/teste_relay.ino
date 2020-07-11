@@ -4,11 +4,13 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 int temp_pin = 1;
 int soil_pin = 3;
 
-const int AirValue = 780;
-const int WaterValue = 410; 
+const int AirValue = 740;
+const int WaterValue = 340; 
+
 int temperature;
 int moisture;
 bool watering;
+
 unsigned long prev_lcd_time;
 unsigned long prev_water_time;
 
@@ -20,11 +22,11 @@ void turn_relay_off() {
 
 int get_temp() {
   analogRead(temp_pin);
-  delay(10);
+  delay(100);
   return (float(analogRead(temp_pin))*5/(1023))/0.01; }
 
 int get_moisture() {
-  return map(analogRead(soil_pin), AirValue, WaterValue, 0, 100); }
+  return map(analogRead(soil_pin), WaterValue, AirValue, 100, 0); }
 
 void lcd_write_data(int temperature, int moisture) {
   lcd.clear();
@@ -48,6 +50,7 @@ void loop() {
   if ( (millis() - prev_lcd_time) >= 5000 ){
     temperature = get_temp();
     moisture = get_moisture();
+    Serial.println(moisture);
     lcd_write_data(temperature,moisture);
     prev_lcd_time = millis();
   }
