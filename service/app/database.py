@@ -25,9 +25,9 @@ def close_connection():
   _connection.close()
 
 
-DATABASE_URL = os.environ['DATABASE_URL'])
+DATABASE_URL = os.environ["DATABASE_URL"])
 
-_connection = psycopg2.connect(DATABASE_URL, sslmode='require')
+_connection = psycopg2.connect(DATABASE_URL, sslmode="require")
 _cursor = _connection.cursor()
 table_name = 'plant_properties' #private
 _create_table()
