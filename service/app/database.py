@@ -23,7 +23,7 @@ def close_connection():
   _cursor.close()
   _connection.close()
 
-_connection = psycopg2.connect("dbname=plant user=pi")
+_connection = psycopg2.connect("dbname=DATABASE_URL user=pi")
 _cursor = _connection.cursor()
 table_name = 'plant_properties' #private
 _create_table()
