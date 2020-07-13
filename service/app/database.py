@@ -39,7 +39,6 @@ _connection = psycopg2.connect(
             port=port
 )
 
-_connection = psycopg2.connect(DATABASE_URL, sslmode="require")
 _cursor = _connection.cursor()
 table_name = 'plant_properties' #private
 _create_table()
