@@ -25,8 +25,6 @@ def close_connection():
   _connection.close()
 
 
-DATABASE_URL = os.environ["DATABASE_URL"])
-
 dbname = os.environ["DATABASE_NAME"]
 user = os.environ["DATABASE_USER"]
 password = os.environ["DATABASE_PASSWORD"]
