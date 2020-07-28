@@ -23,7 +23,7 @@ def select_all_sensor_data():
 def get_last_irrigation():
 	#Just test getting the last as we don't have irrigation yet
 	_cursor.execute("SELECT MAX (timestamp) FROM " + table_name + " WHERE irrigation = false;")
-	return _cursor.fetchall()
+	return str(_cursor.fetchall())
 
 def close_connection():
   _cursor.close()
