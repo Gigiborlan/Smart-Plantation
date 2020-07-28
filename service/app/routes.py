@@ -19,7 +19,7 @@ def read_temperature():
     return "Temperatura: " + str(_temperature) + "oC\nUmidade: " + str(_moisture) + "%\nWatering" + str(_watering)
 
 @app.route('/last_irrigation',methods=['GET'])
-def read_temperature():
+def get_last_irrigation():
     return database.get_last_irrigation()
 
 @app.route('/data',methods=['POST'])
