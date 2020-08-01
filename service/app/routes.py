@@ -22,6 +22,10 @@ def read_temperature():
 def get_last_irrigation():
     return str(database.get_last_irrigation())
 
+@app.route('/all_data',methods=['GET'])
+def get_all_data():
+    return str(database.select_all_sensor_data())
+
 @app.route('/data',methods=['POST'])
 def set_data():
 	global _temperature, _moisture, _watering
