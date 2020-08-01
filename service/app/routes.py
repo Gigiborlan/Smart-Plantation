@@ -20,7 +20,7 @@ def read_temperature():
 
 @app.route('/last_irrigation',methods=['GET'])
 def get_last_irrigation():
-    return database.get_last_irrigation()
+    return str(database.get_last_irrigation())
 
 @app.route('/data',methods=['POST'])
 def set_data():
@@ -34,6 +34,6 @@ def set_data():
 		_moisture = moisture
 	watering = request.args.get('watering')
 	if watering is not None:
-		_watering = (watering == 1)
+		_watering = (watering == '1')
 	database.insert_sensor_data(_temperature,_moisture,_watering)
 	return Response("Posted",200)
